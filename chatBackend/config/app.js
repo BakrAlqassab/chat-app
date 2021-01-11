@@ -1,14 +1,5 @@
 require("dotenv").config();
 
-
-
-
-
-
-
-
-
-
 module.exports = {
   appkey: process.env.APP_KEY,
   appuRL: process.env.APP_URL,
