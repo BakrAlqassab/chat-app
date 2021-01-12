@@ -16,7 +16,8 @@
     border-radius: 20px;
 
     #image-section {
-      background-color: $bg-light;
+      // background-color: $bg-light;
+      background-color:#8B84C7;
       border-top-left-radius: 20px;
       border-bottom-left-radius: 20px;
       img {
@@ -33,7 +34,7 @@
       form {
         padding: 25px;
         .input-field {
-          input {
+          input,select {
             height: 40px;
             width: 100%;
             box-sizing: border-box;
