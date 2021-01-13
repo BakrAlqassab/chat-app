@@ -1,19 +1,30 @@
 import React, { useState } from "react";
 // https://undraw.co/search
 import loginImage from "../../assets/images/Login.svg";
-import axios from "axios";
-import authService from "../../services/authServices";
+// import axios from "axios";
+// //
+// import authService from "../../services/authServices";
 import "./Auth.scss";
+import {useDispatch} from 'react-redux'
+//
+import {login} from '../../store/actions/auth'
 
-const Login = () => {
-  const [email, setEmail] = useState("alqassab31@gmail.com");
+
+
+const Login = ({history}) => {
+  const dispatch = useDispatch()
+  const [email, setEmail] = useState("test.test@gmail.com");
   const [password, setPassword] = useState("secret");
   const submitForm = (e) => {
     e.preventDefault();
-    authService.Login({email, password}).then( res =>{
 
-   console.log(res)
- });
+    dispatch(login({email,password},history))
+
+
+//     authService.Login({email, password}).then( res =>{
+
+//    console.log(res)
+//  });
       // axios
       //   .post("http://127.0.0.1:3000/login", { email, password })
       //   .then((res) => {
@@ -23,6 +34,8 @@ const Login = () => {
       //     console.log("error", error);
       //   });
     //   // console.log(email, password);
+
+
   };
   return (
     // <h1>Login screen </h1>
