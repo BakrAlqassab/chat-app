@@ -1,3 +1,3 @@
 # chat-app
 
-This chat app project will be done with react as Front-end and node.js and mongodb as back-End
+This Full stack Chat app project will be done with Html,Css, React as Front-end and node.js and PostgreSQL  as back-End
