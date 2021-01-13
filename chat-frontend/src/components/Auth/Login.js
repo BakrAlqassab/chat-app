@@ -1,8 +1,29 @@
-import React from "react";
+import React, { useState } from "react";
 // https://undraw.co/search
 import loginImage from "../../assets/images/Login.svg";
-import './Auth.scss'
+import axios from "axios";
+import authService from "../../services/authServices";
+import "./Auth.scss";
+
 const Login = () => {
+  const [email, setEmail] = useState("alqassab31@gmail.com");
+  const [password, setPassword] = useState("secret");
+  const submitForm = (e) => {
+    e.preventDefault();
+    authService.Login({email, password}).then( res =>{
+
+   console.log(res)
+ });
+      // axios
+      //   .post("http://127.0.0.1:3000/login", { email, password })
+      //   .then((res) => {
+      //     console.log("res", res);
+      //   })
+      //   .catch((error) => {
+      //     console.log("error", error);
+      //   });
+    //   // console.log(email, password);
+  };
   return (
     // <h1>Login screen </h1>
     <div id="auth-container">
@@ -13,18 +34,32 @@ const Login = () => {
           </div>
           <div id="form-section">
             <h2>Welcome back</h2>
-            <form>
+            <form onSubmit={submitForm}>
               <div className="input-field mb-1">
-                <input placeholder="Email" />
+                <input
+                  onChange={(e) => setEmail(e.target.value)}
+                  value={email}
+                  required="required"
+                  type="text"
+                  placeholder="Email"
+                />
               </div>
- 
+
               <div className="input-field mb-2">
-                <input placeholder="Passowrd" />
+                <input
+                  onChange={(e) => setPassword(e.target.value)}
+                  value={password}
+                  required="required"
+                  type="password"
+                  placeholder="Passowrd"
+                />
               </div>
 
               <button>LOGIN</button>
             </form>
-            <p>Don't have account? <a href="./register">Register</a> </p>
+            <p>
+              Don't have account? <a href="./register">Register</a>{" "}
+            </p>
           </div>
         </div>
       </div>

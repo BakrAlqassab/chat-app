@@ -6,8 +6,11 @@ const router = require("./router");
 const bodyParser = require("body-parser");
 const app = express();
 
+const cors = require("cors");
+
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
+app.use(cors());
 app.use(router);
 const port = process.env.APP_PORT;
 

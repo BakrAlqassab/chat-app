@@ -9,24 +9,46 @@
   justify-content: center;
   & > div {
     display: flex;
-    flex-direction: row;
-    min-width: 500px;
-    margin-top: 2.5rem;
+    flex-direction: column;
+    min-width: 100%;
+    margin-top: 10px;
     background-color: white;
     border-radius: 20px;
 
+    @media (min-width: 800px) {
+      flex-direction: row;
+      margin-top: 2.5rem;
+      min-width: 500px;
+    }
+
+    
+
     #image-section {
       // background-color: $bg-light;
-      background-color:#8B84C7;
+      background-color: #8b84c7;
       border-top-left-radius: 20px;
-      border-bottom-left-radius: 20px;
+      border-bottom-left-radius: 0px;
+      border-top-right-radius: 20px;
+
+      @media (min-width: 800px) {
+        border-top-right-radius: 0px;
+        border-bottom-left-radius: 20px;
+
+      }
+
       img {
         max-height: 350px;
-        min-width: 100%;
+        max-width: 100%;
       }
     }
     #form-section {
-      min-width: 300px;
+      min-width: 100%;
+
+      @media (min-width: 800px) {
+         
+        min-width: 300px;
+
+      }
 
       h2 {
         text-align: center;
@@ -34,7 +56,8 @@
       form {
         padding: 25px;
         .input-field {
-          input,select {
+          input,
+          select {
             height: 40px;
             width: 100%;
             box-sizing: border-box;
@@ -48,6 +71,8 @@
           color: white;
           cursor: white;
           font-weight: 600;
+
+        
         }
       }
     }

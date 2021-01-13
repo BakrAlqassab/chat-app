@@ -7,7 +7,7 @@ exports.login = async (req, res) => {
   const { email, password } = req.body;
 
   try {
-    // to generate the App Key
+    // to generate the App Key for once
     const secret = require("crypto").randomBytes(64).toString("hex");
     // find the user
     const user = await User.findOne({
@@ -49,6 +49,7 @@ exports.register = async (req, res) => {
 };
 
 const generateToken = (user) => {
+  // To delete the password from the return authentication user information
   delete user.password;
 
   const token = jwt.sign(user, config.appkey, { expiresIn: 86400 });
