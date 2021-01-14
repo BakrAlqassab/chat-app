@@ -25,6 +25,9 @@ exports.login = async (req, res) => {
         .json({ message: "password not match, incorrect password!" });
     //generate auth token
     const userWithToken = generateToken(user.get({ raw: true }));
+
+    userWithToken.avatar = user.avatar;
+
     return res.send(userWithToken);
   } catch (error) {
     return res.status(500).json({ message: error.message });
@@ -34,14 +37,15 @@ exports.login = async (req, res) => {
 };
 
 exports.register = async (req, res) => {
-//   const errors = validationResult(req);
-//   if (!errors.isEmpty()) {
-//     return res.status(400).json({ errors: errors.array() });
-//   }
+  //   const errors = validationResult(req);
+  //   if (!errors.isEmpty()) {
+  //     return res.status(400).json({ errors: errors.array() });
+  //   }
   try {
     const user = await User.create(req.body);
 
     const userWithToken = generateToken(user.get({ raw: true }));
+
     return res.send(userWithToken);
   } catch (error) {
     return res.status(500).json({ message: error.message });

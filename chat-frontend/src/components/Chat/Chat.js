@@ -1,22 +1,17 @@
 import React from "react";
-import {useSelector} from 'react-redux'
+import Navbar from "./component/Navbar/Navbar";
+import './chat.scss'
 
-const CHAT =()=>{
+const CHAT = () => {
 
-const user = useSelector(state => state.authReducer.user)
+  return (
+    <div id='chat-container'>
+      <Navbar />
+      <div id='chat-wrap'>
+      Dommy Data
+      </div>
+    </div>
+  );
+};
 
-return (
-
-  
-    <div>
-      {/* <h1>Chat screen </h1> */}
-   <p> Welcome , { user.firstName}</p>
-   
-   
-   
-   </div>
-)
-
-}
-
-export default CHAT
+export default CHAT;
