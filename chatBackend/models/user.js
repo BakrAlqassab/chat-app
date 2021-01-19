@@ -2,6 +2,7 @@
 const bcrypt = require("bcrypt");
 const { Model } = require("sequelize");
 const config = require("../config/app");
+
 module.exports = (sequelize, DataTypes) => {
   class User extends Model {
     /**

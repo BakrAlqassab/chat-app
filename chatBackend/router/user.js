@@ -1,16 +1,13 @@
 const router = require("express").Router();
-const { login, register } = require("../controllers/authController");
+const { update } = require("../controllers/userController");
 const { validate } = require("../validator/index");
 const { body } = require("express-validator");
 const { rules: registerationRules } = require("../validator/auth/register");
 const { rules: loginRules } = require("../validator/auth/login");
-router.post("/login", [loginRules, validate], login);
+const  {auth} = require('../middleware/auth')
+router.post("/update", [auth], update);
 
-router.post(
-  "/register",
-  [registerationRules, validate],
 
-  register
-);
+
 
 module.exports = router;
