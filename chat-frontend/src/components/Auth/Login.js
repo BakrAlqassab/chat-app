@@ -13,7 +13,7 @@ import {login} from '../../store/actions/auth'
 
 const Login = ({history}) => {
   const dispatch = useDispatch()
-  const [email, setEmail] = useState("test.test@gmail.com");
+  const [email, setEmail] = useState("alqassab31@gmail.com");
   const [password, setPassword] = useState("secret");
   const submitForm = (e) => {
     e.preventDefault();

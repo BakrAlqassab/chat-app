@@ -25,9 +25,8 @@ exports.login = async (req, res) => {
         .json({ message: "password not match, incorrect password!" });
     //generate auth token
     const userWithToken = generateToken(user.get({ raw: true }));
-
-    userWithToken.avatar = user.avatar;
-
+    //  console.log(user)
+    userWithToken.user.avatar = user.avatar;
     return res.send(userWithToken);
   } catch (error) {
     return res.status(500).json({ message: error.message });
@@ -45,7 +44,7 @@ exports.register = async (req, res) => {
     const user = await User.create(req.body);
 
     const userWithToken = generateToken(user.get({ raw: true }));
-
+   
     return res.send(userWithToken);
   } catch (error) {
     return res.status(500).json({ message: error.message });
@@ -57,5 +56,5 @@ const generateToken = (user) => {
   delete user.password;
 
   const token = jwt.sign(user, config.appkey, { expiresIn: 86400 });
-  return { ...user, ...{ token } };
+  return { ...{user}, ...{ token } };
 };
